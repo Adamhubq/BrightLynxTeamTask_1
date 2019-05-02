@@ -5,6 +5,53 @@
 	<title>task_1</title>
 </head>
 <body>
-	
+	<div class="form">
+		<b class="bold">
+			Первое число:
+		</b>
+		<input type="text" name="" value="0.1" id="val1" class="form_input">
+		<b class="bold">Второе число:</b>
+		<input type="text" name="" value="0.2" id="val2" class="form_input">
+		<button class="form_button" id="sum" onclick="doSum()">
+			Сложить
+		</button>
+	</div>
+	<div class="result">
+		<div class="result_text" >
+			<p>Результат :</p>
+		</div>
+		<div class="result_value" id="resVal">
+		</div>
+	</div>
+	<script>
+		window.onload = function () {
+			sum.onclick = function() {
+				if (isNaN(+val1.value) || !val1.value) return  alert('Введите число в первое поле');
+				if (isNaN(+val2.value) || !val2.value)	return alert('Введите число в второе поле');
+				let fix =  round(val1.value, val2.value);
+				resVal.innerHTML = (+val2.value + +val1.value).toFixed(fix);
+				val2.value = val1.value = '';
+			}
+		}
+		function round (val1, val2) { // поиск чисел после запятой
+			let massNumb1 = val1.toString().split('.');
+			let massNumb2 = val2.toString().split('.');
+			// раздробил поиск чисел после точки, чтобы избежать "макарон"
+			let lengthNum2 = !massNumb2[1] ? 0 : massNumb2[1].length;
+			let lengthNum1 = !massNumb1[1] ? 0 : massNumb1[1].length;
+			return lengthNum2 > lengthNum1 ? lengthNum2 : lengthNum1;
+		}
+	</script>
+	<style>
+		.form {
+			display: inline-grid;
+			padding: 15px;
+			border: 1px solid black;
+		}
+		.form_button {
+			margin-top: 15px;
+			width: 70px;
+		}
+	</style>
 </body>
 </html>
