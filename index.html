@@ -12,9 +12,14 @@
 		<input type="text" name="" value="0.1" id="val1" class="form_input">
 		<b class="bold">Второе число:</b>
 		<input type="text" name="" value="0.2" id="val2" class="form_input">
-		<button class="form_button" id="sum" onclick="doSum()">
-			Сложить
-		</button>
+		<div class="form_button_cont">
+			<button class="form_button_cont_sum" id="sum" onclick="doSum()">
+				Сложить
+			</button>
+			<button class="form_button_cont_clear" id="clear">
+				Очистить
+			</button>
+		</div>
 	</div>
 	<div class="result">
 		<div class="result_text" >
@@ -30,6 +35,8 @@
 				if (isNaN(+val2.value) || !val2.value)	return alert('Введите число в второе поле');
 				let fix =  round(val1.value, val2.value);
 				resVal.innerHTML = (+val2.value + +val1.value).toFixed(fix);
+			}
+			clear.onclick = function() {
 				val2.value = val1.value = '';
 			}
 		}
@@ -48,9 +55,10 @@
 			padding: 15px;
 			border: 1px solid black;
 		}
-		.form_button {
+		.form_button_cont_clear, .form_button_cont_clear {
 			margin-top: 15px;
 			width: 70px;
+			cursor: pointer;
 		}
 	</style>
 </body>
