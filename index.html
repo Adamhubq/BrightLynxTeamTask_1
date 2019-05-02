@@ -29,14 +29,14 @@
 		</div>
 	</div>
 	<script>
-		window.onload = function () {
+		window.onload = function () { // ждем загрузки страницы
 			sum.onclick = function() {
-				if (isNaN(+val1.value) || !val1.value) return  alert('Введите число в первое поле');
-				if (isNaN(+val2.value) || !val2.value)	return alert('Введите число в второе поле');
-				let fix =  round(val1.value, val2.value);
+				if (isNaN(+val1.value) || !val1.value) return  alert('Введите число в первое поле'); // Проверяем на корректность
+				if (isNaN(+val2.value) || !val2.value)	return alert('Введите число в второе поле'); // входных данных
+				let fix =  round(val1.value, val2.value); // вычисляем большее число знаков после запятой
 				resVal.innerHTML = (+val2.value + +val1.value).toFixed(fix);
 			}
-			clear.onclick = function() {
+			clear.onclick = function() { // функция для очистки полей
 				val2.value = val1.value = '';
 				resVal.innerHTML = '';
 			}
